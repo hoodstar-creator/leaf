@@ -31,7 +31,6 @@
                     <img src="finder.png" class="search-icon" alt="검색">
                 </div>
                 
-                <!-- The initial level bar that will be hidden -->
                 <div class="level-container initial-level">
                     <span>Lv.2</span>
                     <div class="progress-bar">
@@ -44,11 +43,9 @@
                         <img src="main_plateddeak.png" alt="접시" class="plate-image">
                         <img src="main_siruddeak.png" alt="시루떡" class="cake-image">
                     </div>
-                    <!-- The initial name that will be hidden -->
                     <p class="rice-cake-name initial-name">시루떡</p>
                 </div>
 
-                <!-- Bottom Sheet for More Info -->
                 <div id="info-sheet" class="info-sheet">
                     <div class="bottom-handle"></div>
                     <div class="sheet-header">
@@ -63,29 +60,120 @@
                     <div class="button-group">
                         <div class="sheet-button">
                             <span>떡 만들러 가기</span>
-                            <div class="gogo">
-                                <a href="#">바로가기 &rarr;</a>
-                            </div>
+                        <div class="gogo">
+                            <a href="#">바로가기 &rarr;</a>
+                        </div>
                         </div>
                         <div class="sheet-button">
                             <span>팥 사러 가기</span>
                             <div class="gogo">
-                                <a href="#">바로가기 &rarr;</a>
+                                 <a href="#">바로가기 &rarr;</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
-
-            <!--아래 메뉴바 구성-->
-            <nav class="bottom-nav">
-                <a href="#" class="nav-item"><img src="home.png" alt="홈"><span>홈</span></a>
-                <a href="#" class="nav-item"><img src="mate.png" alt="떡메이트"><span>떡메이트</span></a>
-                <a href="#" class="nav-item"><img src="neighborhood.png" alt="내이웃"><span>내이웃</span></a>
-                <a href="#" class="nav-item"><img src="bangackang.png" alt="방앗간"><span>방앗간</span></a>
-                <a href="#" class="nav-item"><img src="moreimg.png" alt="더보기"><span>더보기</span></a>
-            </nav>
         </div>
+
+        <!-- 떡메이트 화면 -->
+        <div id="mate-screen" class="screen">
+            <header class="app-header">
+                <img src="ddeakeep.png" alt="떡잎 로고" class="header-title">
+                <div class="header-user">
+                    <img src="user-solid-full 1.png" alt="사용자 아이콘" class="user-icon">
+                    <span>user님</span>
+                </div>
+            </header>
+            <main class="content-area mate-content">
+                 <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="">
+                    <img src="finder.png" class="search-icon" alt="검색">
+                </div>
+                <div class="mate-header">
+                    <div class="mate-title">
+                        <h1>떡 바구니</h1>
+                        <img src="group_find.png" alt="바구니 아이콘">
+                    </div>
+                    <div class="mate-tabs">
+                        <a href="#" id="tab-find-bundles" class="active">묶음 찾기</a>
+                        <a href="#" id="tab-my-bundles">내 묶음</a>
+                    </div>
+                </div>
+
+                <!-- 탭 콘텐츠 컨테이너 -->
+                <div class="tab-content-container">
+                    <!-- "묶음 찾기" 콘텐츠 영역 -->
+                    <div id="find-bundles-content" class="tab-content active">
+                        <div class="promises-section">
+                            <p class="promises-count">주변 약속 4</p>
+                            <div class="promises-list-container">
+                                <div class="promises-list">
+                                    <div class="promise-card">
+                                        <div class="group_title">
+                                            <h3>디미고에서 자전거 타실 분..?</h3>
+                                        </div>
+                                        <p>시간: 12:00</p>
+                                        <p>장소: 디미고 운동장</p>
+                                        <span class="card-user">사용자: 김치피자탕수...</span>
+                                    </div>
+                                    <div class="promise-card">
+                                        <div class="group_title">
+                                            <h3>저랑 같이 중앙역 가실 분!!!</h3>
+                                        </div>
+                                        <p>시간: 12:00</p>
+                                        <p>장소: 디미고 운동장</p>
+                                        <span class="card-user">사용자: 디미톤에서살...</span>
+                                    </div>
+                                    <div class="promise-card">
+                                        <div class="group_title">
+                                            <h3>혹시 택시 같이 타실 분 있나요?</h3>
+                                        </div>
+                                        <p>시간: 12:00</p>
+                                        <p>장소: 디미고 운동장</p>
+                                        <span class="card-user">사용자: 스파크는언제...</span>
+                                    </div>
+                                    <div class="promise-card">
+                                        <div class="group_title">
+                                            <h3>같이 러닝 하실 분~</h3>
+                                        </div>
+                                        <p>시간: 12:00</p>
+                                        <p>장소: 디미고 운동장</p>
+                                        <span class="card-user">사용자: 1224 조율희</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- "내 묶음" 콘텐츠 영역 (초기에는 숨겨짐) -->
+                    <div id="my-bundles-content" class="tab-content">
+                        <div class="promises-section">
+                            <p class="promises-count">내 약속 1</p>
+                            <div class="promises-list-container" style="overflow-y: hidden;">
+                                <div class="promises-list">
+                                    <div class="promise-card my-promise-card">
+                                        <h3>디미고에서 자전거 타실분..?</h3>
+                                        <p>시간:12:00</p>
+                                        <p>장소:디미고 운동장</p>
+                                        <span class="card-user">사용자:김치피자탕수...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <!--아래 메뉴바 구성-->
+        <nav class="bottom-nav">
+            <a href="#" id="nav-home" class="nav-item"><img src="home.png" alt="홈"><span>홈</span></a>
+            <a href="#" id="nav-mate" class="nav-item"><img src="mate.png" alt="떡메이트"><span>떡메이트</span></a>
+            <a href="#" class="nav-item"><img src="neighborhood.png" alt="내이웃"><span>내이웃</span></a>
+            <a href="#" class="nav-item"><img src="bangackang.png" alt="방앗간"><span>방앗간</span></a>
+            <a href="#" class="nav-item"><img src="moreimg.png" alt="더보기"><span>더보기</span></a>
+        </nav>
     </div>
 
     <script src="script.js"></script>
