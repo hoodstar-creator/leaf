@@ -62,7 +62,9 @@ body {
 }
 
 .splash-image {
-    width: 120px; /* Adjusted size */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the entire container */
 }
 
 /* --- App Content --- */
@@ -81,9 +83,8 @@ body {
 }
 
 .header-title {
-    font-size: 1.6em;
-    font-weight: 700;
-    color: #6D4C41;
+    height: 28px; /* Set image height */
+    width: auto;  /* Maintain aspect ratio */
 }
 
 .header-user {
@@ -104,6 +105,8 @@ body {
     flex-grow: 1;
     padding: 20px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .search-container {
@@ -164,14 +167,38 @@ body {
 }
 
 .rice-cake-display {
-    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.main-image {
-    width: 180px;
+.image-stack {
+    position: relative;
+    width: 220px; /* Width of the plate */
+    height: 200px; /* Adjusted height to contain both images */
     margin-bottom: 15px;
+}
+
+.plate-image, .cake-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+}
+
+.plate-image {
+    width: 220px;
+    bottom: 20px; /* Position plate lower */
+    z-index: 1;
+}
+
+.cake-image {
+    width: 180px;
+    top: 0; /* Position cake at the top */
+    z-index: 2;
 }
 
 .rice-cake-name {
@@ -212,4 +239,5 @@ body {
     height: 28px;
     margin-bottom: 5px;
     opacity: 0.8;
+    object-fit: contain; /* Ensures icons fit without distortion */
 }
