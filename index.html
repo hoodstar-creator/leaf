@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>떡잎</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.6">
 </head>
 <body>
-
     <div class="app-container">
-
-        <!-- 처음 로딩창 -->
+        <!-- 로딩 화면 -->
         <div id="loading-screen" class="screen active">
             <img src="Android Compact - 1 (1).png" alt="로딩 화면" class="splash-image">
         </div>
 
-        <!-- 메인 화면 구성 -->
+        <!-- 홈 화면 -->
         <div id="app-content" class="screen">
             <header class="app-header">
                 <img src="ddeakeep.png" alt="떡잎 로고" class="header-title">
@@ -24,20 +22,15 @@
                     <span>user님</span>
                 </div>
             </header>
-
             <main class="content-area">
                 <div class="search-container">
                     <input type="text" class="search-bar" placeholder="">
                     <img src="finder.png" class="search-icon" alt="검색">
                 </div>
-                
                 <div class="level-container initial-level">
                     <span>Lv.2</span>
-                    <div class="progress-bar">
-                        <div class="progress"></div>
-                    </div>
+                    <div class="progress-bar"><div class="progress"></div></div>
                 </div>
-
                 <div class="rice-cake-display">
                     <div class="image-stack">
                         <img src="main_plateddeak.png" alt="접시" class="plate-image">
@@ -45,37 +38,29 @@
                     </div>
                     <p class="rice-cake-name initial-name">시루떡</p>
                 </div>
-
                 <div id="info-sheet" class="info-sheet">
                     <div class="bottom-handle"></div>
-                    <div class="sheet-header">
-                        <h2>시루떡 <img src="pencil.png" alt="편집" class="edit-icon"></h2>
-                    </div>
+                    <div class="sheet-header"><h2>시루떡 <img src="pencil.png" alt="편집" class="edit-icon"></h2></div>
                     <div class="level-container">
-                        <span>Lv.2</span>
-                        <div class="progress-bar">
-                            <div class="progress"></div>
-                        </div>
+                        <span><b>Lv.2</b></span>
+                        <div class="progress-bar"><div class="progress"></div></div>
                     </div>
                     <div class="button-group">
                         <div class="sheet-button">
                             <span>떡 만들러 가기</span>
-                        <div class="gogo">
-                            <a href="#">바로가기 &rarr;</a>
-                        </div>
+                            <!-- ID 추가 -->
+                            <div class="gogo"><a href="#" id="go-to-neighbor">바로가기 &rarr;</a></div>
                         </div>
                         <div class="sheet-button">
                             <span>팥 사러 가기</span>
-                            <div class="gogo">
-                                 <a href="#">바로가기 &rarr;</a>
-                            </div>
+                            <div class="gogo"><a href="#">바로가기 &rarr;</a></div>
                         </div>
                     </div>
                 </div>
             </main>
         </div>
 
-        <!-- 떡메이트 화면 -->
+        <!-- 떡메이트 화면 (목록 확장) -->
         <div id="mate-screen" class="screen">
             <header class="app-header">
                 <img src="ddeakeep.png" alt="떡잎 로고" class="header-title">
@@ -99,83 +84,211 @@
                         <a href="#" id="tab-my-bundles">내 묶음</a>
                     </div>
                 </div>
-
-                <!-- 탭 콘텐츠 컨테이너 -->
                 <div class="tab-content-container">
-                    <!-- "묶음 찾기" 콘텐츠 영역 -->
                     <div id="find-bundles-content" class="tab-content active">
                         <div class="promises-section">
-                            <p class="promises-count">주변 약속 4</p>
+                            <p class="promises-count">주변 약속 5</p>
                             <div class="promises-list-container">
                                 <div class="promises-list">
                                     <div class="promise-card">
-                                        <div class="group_title">
-                                            <h3>디미고에서 자전거 타실 분..?</h3>
-                                        </div>
-                                        <p>시간: 12:00</p>
-                                        <p>장소: 디미고 운동장</p>
+                                        <div class="group_title"><h3>디미고에서 자전거 타실 분..?</h3></div>
+                                        <p>시간: 12:00</p><p>장소: 디미고 운동장</p>
                                         <span class="card-user">사용자: 김치피자탕수...</span>
                                     </div>
                                     <div class="promise-card">
-                                        <div class="group_title">
-                                            <h3>저랑 같이 중앙역 가실 분!!!</h3>
-                                        </div>
-                                        <p>시간: 12:00</p>
-                                        <p>장소: 디미고 운동장</p>
+                                        <div class="group_title"><h3>저랑 같이 중앙역 가실 분!!!</h3></div>
+                                        <p>시간: 12:00</p><p>장소: 디미고 운동장</p>
                                         <span class="card-user">사용자: 디미톤에서살...</span>
                                     </div>
                                     <div class="promise-card">
-                                        <div class="group_title">
-                                            <h3>혹시 택시 같이 타실 분 있나요?</h3>
-                                        </div>
-                                        <p>시간: 12:00</p>
-                                        <p>장소: 디미고 운동장</p>
-                                        <span class="card-user">사용자: 스파크는언제...</span>
+                                        <div class="group_title"><h3>혹시 택시 같이 타실 분 있나요</h3></div>
+                                        <p>시간: 19:00</p><p>장소: 디미고 운동장</p>
+                                        <span class="card-user">사용자: 스파크는 언제...</span>
                                     </div>
                                     <div class="promise-card">
-                                        <div class="group_title">
-                                            <h3>같이 러닝 하실 분~</h3>
-                                        </div>
-                                        <p>시간: 12:00</p>
-                                        <p>장소: 디미고 운동장</p>
-                                        <span class="card-user">사용자: 1224 조율희</span>
+                                        <div class="group_title"><h3>같이 러닝하실 분~</h3></div>
+                                        <p>시간: 매주 금 18:00</p><p>장소: 디미고 운동장</p>
+                                        <span class="card-user">사용자: 런닝맨</span>
+                                    </div>
+                                    <div class="promise-card">
+                                        <div class="group_title"><h3>야자때 같이 공부하실분 구합니다</h3></div>
+                                        <p>시간: 02:00 ~ 06:00</p><p>장소: 202호</p>
+                                        <span class="card-user">사용자: 올빼미개발자</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- "내 묶음" 콘텐츠 영역 (초기에는 숨겨짐) -->
                     <div id="my-bundles-content" class="tab-content">
-                        <div class="promises-section">
+                       <div class="promises-section">
                             <p class="promises-count">내 약속 1</p>
                             <div class="promises-list-container" style="overflow-y: hidden;">
                                 <div class="promises-list">
                                     <div class="promise-card my-promise-card">
                                         <h3>디미고에서 자전거 타실분..?</h3>
-                                        <p>시간:12:00</p>
-                                        <p>장소:디미고 운동장</p>
-                                        <span class="card-user">사용자:김치피자탕수...</span>
+                                        <p>시간: 12:00</p><p>장소: 디미고 운동장</p>
+                                        <span class="card-user">사용자: 김치피자탕수...</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </main>
         </div>
 
-        <!--아래 메뉴바 구성-->
+        <!-- 내 이웃 화면 (목록 확장) -->
+        <div id="neighbor-screen" class="screen">
+            <header class="app-header">
+                <img src="ddeakeep.png" alt="떡잎 로고" class="header-title">
+                <div class="header-user">
+                    <img src="user-solid-full 1.png" alt="사용자 아이콘" class="user-icon">
+                    <span>user님</span>
+                </div>
+            </header>
+            <main class="content-area neighbor-content">
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="">
+                    <img src="finder.png" class="search-icon" alt="검색">
+                </div>
+                <div class="neighbor-header">
+                    <div class="neighbor-title">
+                        <h1>내 이웃</h1>
+                        <img src="neighborhood.png" alt="이웃 아이콘">
+                    </div>
+                    <button class="birthday-button">생일인 이웃 2 &gt;</button>
+                </div>
+                <div class="neighbor-filters">
+                    <span>이웃 10</span>
+                    <div>
+                        <a href="#" class="active">가나다순</a>
+                        <a href="#">접속중</a>
+                    </div>
+                </div>
+                <div class="neighbor-list-container">
+                    <div class="neighbor-list">
+                        <div class="neighbor-card">
+                            <img src="1202.png" alt="권재현 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>권재현</h3>
+                                <p class="neighbor-subtitle">스파크 팀장 권재현입니다</p>
+                                <p class="neighbor-description">떡잎 프로젝트의 팀장을 맡고 있습니다.</p>
+                            </div>
+                            <div class="status-circle offline"></div>
+                        </div>
+                        <div class="neighbor-card">
+                            <img src="1206.png" alt="나기찬 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>나기찬</h3>
+                                <p class="neighbor-subtitle">스파크 기획 나기찬입니다</p>
+                                <p class="neighbor-description">떡잎 서비스의 기획을 담당합니다.</p>
+                            </div>
+                            <div class="status-circle online"></div>
+                        </div>
+                        <div class="neighbor-card">
+                            <img src="1207.png" alt="박근우 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>박근우</h3>
+                                <p class="neighbor-subtitle">스파크 개발 박근우입니다</p>
+                                <p class="neighbor-description">떡잎 앱의 프론트엔드 개발을 맡았습니다.</p>
+                            </div>
+                            <div class="status-circle online"></div>
+                        </div>
+                        <div class="neighbor-card">
+                            <img src="1218.png" alt="이규원 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>이규원</h3>
+                                <p class="neighbor-subtitle">스파크 발표 이규원입니다</p>
+                                <p class="neighbor-description">떡잎 프로젝트의 발표와 디자인을 담당합니다.</p>
+                            </div>
+                            <div class="status-circle offline"></div>
+                        </div>
+                        <div class="neighbor-card">
+                            <img src="1224.png" alt="조율희 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>조율희</h3>
+                                <p class="neighbor-subtitle">KDMHS 24DC</p>
+                                <p class="neighbor-description">24기디컨 조율희 입니다.</p>
+                            </div>
+                            <div class="status-circle online"></div>
+                        </div>
+                        <div class="neighbor-card">
+                            <img src="1218.png" alt="최서연 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>최서연</h3>
+                                <p class="neighbor-subtitle">데이터 분석가 지망생</p>
+                                <p class="neighbor-description">파이썬과 R을 공부하고 있습니다. 같이 성장해요!</p>
+                            </div>
+                            <div class="status-circle offline"></div>
+                        </div>
+                        <div class="neighbor-card">
+                            <img src="https://static.solved.ac/uploads/profile/360x360/hoodstar1018-picture-1759662779491.png" alt="강지훈 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>강지훈</h3>
+                                <p class="neighbor-subtitle">백엔드 개발자</p>
+                                <p class="neighbor-description">Spring Boot와 JPA를 다룹니다. 커피챗 환영!</p>
+                            </div>
+                            <div class="status-circle online"></div>
+                        </div>
+                        <div class="neighbor-card">
+                            <img src="1218.png" alt="윤채원 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>윤채원</h3>
+                                <p class="neighbor-subtitle">iOS 개발자</p>
+                                <p class="neighbor-description">SwiftUI로 예쁜 앱 만드는 것을 좋아해요.</p>
+                            </div>
+                            <div class="status-circle online"></div>
+                        </div>
+                        <div class="neighbor-card">
+                            <img src="https://static.solved.ac/uploads/profile/360x360/magic_spirit-picture-1730540336652.png" alt="김규진 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>김규진</h3>
+                                <p class="neighbor-subtitle">알고리즘 풀이 중</p>
+                                <p class="neighbor-description">백준 루비를 목표로 달리는 중입니다.</p>
+                            </div>
+                            <div class="status-circle offline"></div>
+                        </div>
+                        <div class="neighbor-card">
+                            <img src="https://static.solved.ac/uploads/profile/360x360/ho991217-picture-1646121336321.png" alt="조은우 프로필" class="neighbor-profile-pic">
+                            <div class="neighbor-info">
+                                <h3>조은우</h3>
+                                <p class="neighbor-subtitle">PM이 되고 싶어요</p>
+                                <p class="neighbor-description">기획과 프로젝트 관리에 대한 이야기를 나눠요.</p>
+                            </div>
+                            <div class="status-circle offline"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+                <div id="neighbor-screen" class="screen"><!-- ...내 이웃 내용... --></div>
+        <!-- 방앗간 화면 (신규) -->
+        <div id="bangackang-screen" class="screen">
+            <div class="placeholder-content">
+                <h1>아직 개발중입니다 🛠️</h1>
+                <p>멋진 기능으로 곧 찾아올게요!</p>
+            </div>
+        </div>
+        <!-- 더보기 화면 (신규) -->
+        <div id="more-screen" class="screen">
+            <div class="placeholder-content">
+                <h1>아직 개발중입니다 🛠️</h1>
+                <p>멋진 기능으로 곧 찾아올게요!</p>
+            </div>
+        </div>
+
+
+        <!-- 하단 네비게이션 -->
         <nav class="bottom-nav">
             <a href="#" id="nav-home" class="nav-item"><img src="home.png" alt="홈"><span>홈</span></a>
             <a href="#" id="nav-mate" class="nav-item"><img src="mate.png" alt="떡메이트"><span>떡메이트</span></a>
-            <a href="#" class="nav-item"><img src="neighborhood.png" alt="내이웃"><span>내이웃</span></a>
-            <a href="#" class="nav-item"><img src="bangackang.png" alt="방앗간"><span>방앗간</span></a>
-            <a href="#" class="nav-item"><img src="moreimg.png" alt="더보기"><span>더보기</span></a>
+            <a href="#" id="nav-neighbor" class="nav-item"><img src="neighborhood.png" alt="내이웃"><span>내이웃</span></a>
+            <!-- ID 추가 -->
+            <a href="#" id="nav-bangackang" class="nav-item"><img src="bangackang.png" alt="방앗간"><span>방앗간</span></a>
+            <a href="#" id="nav-more" class="nav-item"><img src="moreimg.png" alt="더보기"><span>더보기</span></a>
         </nav>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=1.6"></script>
 </body>
 </html>
