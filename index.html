@@ -40,25 +40,63 @@
                 </div>
                 <div id="info-sheet" class="info-sheet">
                     <div class="bottom-handle"></div>
-                    <div class="sheet-header"><h2>시루떡 <img src="pencil.png" alt="편집" class="edit-icon"></h2></div>
-                    <div class="level-container">
-                        <span><b>Lv.2</b></span>
-                        <div class="progress-bar"><div class="progress"></div></div>
-                    </div>
-                    <div class="button-group">
-                        <div class="sheet-button">
-                            <span>떡 만들러 가기</span>
-                            <!-- ID 추가 -->
-                            <div class="gogo"><a href="#" id="go-to-neighbor">바로가기 &rarr;</a></div>
+                    <div id="sheet-original-content">
+                        <div class="sheet-header"><h2>시루떡 <img src="pencil.png" alt="편집" class="edit-icon"></h2></div>
+                        <div class="level-container">
+                            <span>Lv.2</span>
+                            <div class="progress-bar"><div class="progress"></div></div>
                         </div>
-                        <div class="sheet-button">
-                            <span>팥 사러 가기</span>
-                            <div class="gogo"><a href="#">바로가기 &rarr;</a></div>
+                        <div class="button-group">
+                            <div class="sheet-button">
+                                <span>떡 만들러 가기</span>
+                                <div class="gogo"><a href="#" id="go-to-neighbor">바로가기 &rarr;</a></div>
+                            </div>
+                            <div class="sheet-button">
+                                <span>팥 사러 가기</span>
+                                <div class="gogo"><a href="#">바로가기 &rarr;</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sheet-interests-content" style="display: none;">
+                        <div class="interests-header">
+                            <h2>내 관심사</h2>
+                            <span>▼ 고양이</span>
+                        </div>
+                        <div class="interests-list">
+                             <div class="interest-card">
+                                <img src="g_cat.png" alt="이규원 고양이" class="interest-profile-pic">
+                                <div class="interest-info">
+                                    <h3>이규원</h3>
+                                    <p>래미안 108동 501호</p>
+                                </div>
+                            </div>
+                            <div class="interest-card">
+                                <img src="n_cat.png" alt="나기찬 고양이" class="interest-profile-pic">
+                                <div class="interest-info">
+                                    <h3>나기찬</h3>
+                                    <p>래미안 108동 302호</p>
+                                </div>
+                            </div>
+                            <div class="interest-card">
+                                <img src="b_cat.png" alt="박근우 고양이" class="interest-profile-pic">
+                                <div class="interest-info">
+                                    <h3>박근우</h3>
+                                    <p>래미안 102동 1102호</p>
+                                </div>
+                            </div>
+                                                         <div class="interest-card">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTA1MTRfMTk2%2FMDAxNzQ3MTk3MDM1MjI2.eYGA2bDgec4jAtQl_YHcFpPl4xBV0-V5Z8yypvOnwtAg.vFSF0ruKz83xcOvDPzmV8RZLuxQjCz_w-pxz4hQeAHgg.JPEG%2FKakaoTalk_Photo_2025-05-14-13-09-44_001.jpeg&type=sc960_832" alt="이스터에그" class="interest-profile-pic">
+                                <div class="interest-info">
+                                    <h3>김채경</h3>
+                                    <p>래미안 302동 506호</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </main>
         </div>
+
 
         <!-- 떡메이트 화면 (목록 확장) -->
         <div id="mate-screen" class="screen">
