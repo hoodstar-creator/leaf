@@ -31,10 +31,9 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
-    border-radius: 10px; /* Optional: for a more refined look */
+    border-radius: 10px;
 }
 
-/* --- Screen Management --- */
 .screen {
     position: absolute;
     top: 0;
@@ -43,7 +42,7 @@ body {
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
 }
@@ -53,7 +52,6 @@ body {
     visibility: visible;
 }
 
-/* --- Loading Screen --- */
 #loading-screen {
     justify-content: center;
     align-items: center;
@@ -64,15 +62,13 @@ body {
 .splash-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This makes the image cover the entire container */
+    object-fit: cover;
 }
 
-/* --- App Content --- */
 #app-content {
     z-index: 5;
 }
 
-/* --- Header --- */
 .app-header {
     display: flex;
     justify-content: space-between;
@@ -80,12 +76,13 @@ body {
     padding: 15px 20px;
     border-bottom: 1px solid #EADBC8;
     flex-shrink: 0;
+    position: relative;
+    z-index: 10; 
 }
 
 .header-title {
-    font-size: 1.6em;
-    font-weight: 700;
-    color: #6D4C41;
+    height: 28px;
+    width: auto;
 }
 
 .header-user {
@@ -101,16 +98,29 @@ body {
     margin-right: 8px;
 }
 
-/* --- Main Content --- */
 .content-area {
     flex-grow: 1;
-    padding: 20px;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+}
+
+.initial-level,
+.initial-name {
+    transition: opacity 0.3s ease-in-out;
+    padding: 0 20px;
+}
+
+.sheet-visible .initial-level,
+.sheet-visible .initial-name {
+    opacity: 0;
+    pointer-events: none; 
 }
 
 .search-container {
-    position: relative;
-    margin-bottom: 25px;
+    position: relative; /* Set positioning context for the icon */
+    margin: 20px 20px 25px;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .search-bar {
@@ -123,13 +133,9 @@ body {
     color: #8D6E63;
 }
 
-.search-bar::placeholder {
-    color: #BDBDBD;
-}
-
 .search-icon {
     position: absolute;
-    right: 20px;
+    right: 20px; /* Corrected position */
     top: 50%;
     transform: translateY(-50%);
     width: 20px;
@@ -152,45 +158,172 @@ body {
 
 .progress-bar {
     flex-grow: 1;
-    height: 12px;
-    background-color: #EADBC8;
-    border-radius: 6px;
+    height: 20px;
+    background-color: #ECEFF1;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
 .progress {
     width: 40%;
     height: 100%;
-    background: linear-gradient(90deg, #8D6E63, #A1887F);
-    border-radius: 6px;
+    background: #6D4C41;
+    border-radius: 10px;
 }
 
 .rice-cake-display {
-    text-align: center;
-    margin-bottom: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: static;
 }
 
-.main-image {
-    width: 180px;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+.image-stack {
+    position: relative;
+    width: 260px;
+    height: 220px;
+    margin: 0 auto 15px; /* Centered with bottom margin */
+}
+
+.plate-image {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: auto;
+    z-index: 1;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.08));
+}
+
+.cake-image {
+    position: absolute;
+    left: 50%; /* Centered */
+    bottom: 110px; /* Using user's bottom value */
+    transform: translateX(-50%) scale(1.1);
+    width: 200px;
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,0.12));
 }
 
 .rice-cake-name {
     font-size: 1.8em;
     font-weight: 700;
     color: #5D4037;
+    text-align: center;
 }
 
 .bottom-handle {
-    width: 120px;
-    height: 5px;
-    background-color: #D7CCC8;
-    border-radius: 2.5px;
-    margin: 25px auto 0;
+    width: 40px;
+    height: 4px;
+    background-color: #7F4424;
+    border-radius: 2px;
+    margin: 10px auto;
 }
 
-/* --- Bottom Navigation --- */
+.info-sheet {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #EDCBAF;
+    border-radius: 25px 25px 0 0;
+    padding: 0px 30px 30px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 20;
+}
+
+.info-sheet.active {
+    transform: translateY(0);
+}
+
+.sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.sheet-header h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #5D4037;
+    display: flex;
+    align-items: center;
+}
+
+.edit-icon {
+    width: 22px;
+    height: 22px;
+    margin-left: 10px;
+}
+
+.info-sheet .level-container {
+    padding: 0; 
+    margin-bottom: 25px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.sheet-button {
+    flex: 1;
+    background-color: #F8E2D1;
+    border: 1px solid #EADBC8;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+}
+
+.gogo {
+    flex: 1;
+    background-color: #7F4424;
+    border: 1px solid #7F4424;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+/* a 태그 전체에 흰색 고정 */
+.gogo a,
+.gogo a:link,
+.gogo a:visited {
+    display: block;
+    color: #ffffff !important;  /* 글자색 완전 흰색 */
+    text-decoration: none;      /* 밑줄 제거 */
+}
+
+/* hover나 active 시에도 색 유지 */
+.gogo a:hover,
+.gogo a:active {
+    color: #ffffff !important;
+}
+
+
+.sheet-button span {
+    font-size: 1em;
+    color: #6D4C41;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.sheet-button a {
+    text-decoration: none;
+    color: #A1887F;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
 .bottom-nav {
     display: flex;
     justify-content: space-around;
@@ -198,6 +331,8 @@ body {
     border-top: 1px solid #EADBC8;
     background-color: #FDF8F0;
     flex-shrink: 0;
+    position: relative;
+    z-index: 30;
 }
 
 .nav-item {
@@ -214,42 +349,5 @@ body {
     height: 28px;
     margin-bottom: 5px;
     opacity: 0.8;
-    object-fit: contain; /* Ensures icons fit without distortion */
+    object-fit: contain;
 }
-
-/* 컨테이너는 중앙 정렬 유지 */
-.image-stack {
-  position: relative;
-  width: 260px;   /* 필요하면 조정 */
-  height: 220px;  /* 이미지 높이에 맞춰 조정 */
-  margin: 0 auto; /* 가운데 정렬(부모가 flex가 아니어도) */
-}
-
-/* 접시(뒤쪽) : 아래쪽에 위치시키고 z-index 낮게 */
-.plate-image {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  bottom: 0px;                      /* 접시를 컨테이너 아래쪽으로 내림 */
-  transform: translateX(-50%);       /* 수평 중앙 정렬 */
-  width: 300px;                      /* 컨테이너 폭과 동일하게 */
-  height: auto;
-  z-index: 1;                        /* 뒤에 위치 */
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.08));
-}
-
-/* 시루떡(앞쪽) : 접시보다 위쪽에 배치하여 받쳐지는 느낌 */
-.cake-image {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  bottom: 70px;                      /* 접시보다 위로 띄움 — 값 조정 가능(30~90) */
-  transform: translateX(-50%);
-  width: 200px;                      /* 시루떡 크기 */
-  height: auto;
-  z-index: 2;                        /* 위에 위치 */
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.12));
-}
-
-/* (선택) 접시가 약간 보이게 시루떡의 하단을 겹치게 하고 싶다면
-   cake-image의 bottom 값을 줄이거나 plate-image의 bottom 값을 늘려 미세조정하세요 */
