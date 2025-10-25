@@ -83,8 +83,9 @@ body {
 }
 
 .header-title {
-    height: 28px; /* Set image height */
-    width: auto;  /* Maintain aspect ratio */
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #6D4C41;
 }
 
 .header-user {
@@ -105,8 +106,6 @@ body {
     flex-grow: 1;
     padding: 20px;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
 }
 
 .search-container {
@@ -167,38 +166,14 @@ body {
 }
 
 .rice-cake-display {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.image-stack {
-    position: relative;
-    width: 220px; /* Width of the plate */
-    height: 200px; /* Adjusted height to contain both images */
-    margin-bottom: 15px;
-}
-
-.plate-image, .cake-image {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
-}
-
-.plate-image {
-    width: 220px;
-    bottom: 20px; /* Position plate lower */
-    z-index: 1;
-}
-
-.cake-image {
+.main-image {
     width: 180px;
-    top: 0; /* Position cake at the top */
-    z-index: 2;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
 }
 
 .rice-cake-name {
@@ -241,3 +216,40 @@ body {
     opacity: 0.8;
     object-fit: contain; /* Ensures icons fit without distortion */
 }
+
+/* 컨테이너는 중앙 정렬 유지 */
+.image-stack {
+  position: relative;
+  width: 260px;   /* 필요하면 조정 */
+  height: 220px;  /* 이미지 높이에 맞춰 조정 */
+  margin: 0 auto; /* 가운데 정렬(부모가 flex가 아니어도) */
+}
+
+/* 접시(뒤쪽) : 아래쪽에 위치시키고 z-index 낮게 */
+.plate-image {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  bottom: 0px;                      /* 접시를 컨테이너 아래쪽으로 내림 */
+  transform: translateX(-50%);       /* 수평 중앙 정렬 */
+  width: 300px;                      /* 컨테이너 폭과 동일하게 */
+  height: auto;
+  z-index: 1;                        /* 뒤에 위치 */
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.08));
+}
+
+/* 시루떡(앞쪽) : 접시보다 위쪽에 배치하여 받쳐지는 느낌 */
+.cake-image {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  bottom: 70px;                      /* 접시보다 위로 띄움 — 값 조정 가능(30~90) */
+  transform: translateX(-50%);
+  width: 200px;                      /* 시루떡 크기 */
+  height: auto;
+  z-index: 2;                        /* 위에 위치 */
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.12));
+}
+
+/* (선택) 접시가 약간 보이게 시루떡의 하단을 겹치게 하고 싶다면
+   cake-image의 bottom 값을 줄이거나 plate-image의 bottom 값을 늘려 미세조정하세요 */
