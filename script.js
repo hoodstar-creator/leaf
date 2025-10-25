@@ -1,24 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loadingScreen = document.getElementById('loading-screen');
     const appContent = document.getElementById('app-content');
+    const infoSheet = document.getElementById('info-sheet');
+    const body = document.body;
 
-    // --- Start the loading process ---
-    // 1. Set a timer for the splash screen duration
+    // --- 1. Loading Screen Logic ---
     setTimeout(() => {
-        // 2. Remove 'active' class to trigger the fade-out transition
         loadingScreen.classList.remove('active');
+        appContent.classList.add('active');
 
-        // 3. Listen for the end of the transition event
-        loadingScreen.addEventListener('transitionend', function onTransitionEnd() {
-            // 4. Once the fade-out is complete, hide the loading screen permanently
-            loadingScreen.style.display = 'none';
+        // --- 2. Info Sheet Animation Logic ---
+        // After the app content is visible, wait 0.5s and then slide up the sheet.
+        setTimeout(() => {
+            // Add class to body to hide initial elements
+            document.documentElement.classList.add('sheet-visible');
             
-            // 5. Activate the main app content to trigger its fade-in
-            appContent.classList.add('active');
+            // Activate the info sheet to slide it up
+            infoSheet.classList.add('active');
+        }, 2500); // 0.5 second delay
 
-            // 6. Clean up the event listener to prevent it from firing again
-            loadingScreen.removeEventListener('transitionend', onTransitionEnd);
-        });
-
-    }, 2500); // 2.5-second splash screen display time
+    }, 1500); // 1.5 second initial loading time
 });
