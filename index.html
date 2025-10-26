@@ -13,6 +13,7 @@
             <img src="Android Compact - 1 (1).png" alt="로딩 화면" class="splash-image">
         </div>
 
+        
         <!-- 홈 화면 -->
         <div id="app-content" class="screen">
             <header class="app-header">
@@ -307,12 +308,44 @@
                 <p>멋진 기능으로 곧 찾아올게요!</p>
             </div>
         </div>
-        <!-- 더보기 화면 (신규) -->
+        <!-- 더보기 캘린더 화면 -->
         <div id="more-screen" class="screen">
-            <div class="placeholder-content">
-                <h1>아직 개발중입니다 🛠️</h1>
-                <p>멋진 기능으로 곧 찾아올게요!</p>
-            </div>
+            <header class="app-header">
+                <img src="ddeakeep.png" alt="떡잎 로고" class="header-title">
+                <div class="header-user">
+                    <img src="user-solid-full 1.png" alt="사용자 아이콘" class="user-icon">
+                    <span>user님</span>
+                </div>
+            </header>
+            <main class="content-area more-content">
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="">
+                    <img src="finder.png" class="search-icon" alt="검색">
+                </div>
+                <div class="calendar-header">
+                    <h2>캘린더</h2>
+                    <img src="calendar-solid-full (1) 1.png" alt="캘린더 아이콘">
+                </div>
+                <div class="calendar-container">
+                    <div class="calendar-nav">
+                        <button id="prev-month">&lt;</button>
+                        <h3 id="month-year"></h3>
+                        <button id="next-month">&gt;</button>
+                    </div>
+                    <div class="calendar-grid days-of-week">
+                        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+                    </div>
+                    <div id="calendar-days" class="calendar-grid"></div>
+                </div>
+                <div class="add-schedule-container">
+                     <div class="bottom-handle-bar"></div>
+                    <button class="add-schedule-button">
+                        <span id="schedule-date-text"></span>
+                        <span>일정 추가</span>
+                        <span class="plus-icon">+</span>
+                    </button>
+                </div>
+            </main>
         </div>
 
 
