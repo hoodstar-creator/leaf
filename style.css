@@ -709,7 +709,7 @@ body {
 
 .add-schedule-container {
     position: fixed;
-    bottom: 150px; /* 네비게이션 바 높이 */
+    bottom: 70px; /* 네비게이션 바 높이 */
     left: 0;
     right: 0;
     max-width: 450px;
