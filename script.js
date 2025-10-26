@@ -164,74 +164,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
         //추가된부분------------    
-            // --- Calendar Logic ---
             const initCalendar = () => {
-                const calendarContainer = document.getElementById('more-screen');
-                if (!calendarContainer) return;
-                const monthYearElement = document.getElementById('month-year');
-                const calendarDaysElement = document.getElementById('calendar-days');
-                const prevMonthButton = document.getElementById('prev-month');
-                const nextMonthButton = document.getElementById('next-month');
-                const scheduleDateTextElement = document.getElementById('schedule-date-text');
-                
-                let currentDate = new Date(2025, 9, 1); // October 2025 as per image
-                const renderCalendar = () => {
-                    const year = currentDate.getFullYear();
-                    const month = currentDate.getMonth();
-                    monthYearElement.textContent = `${year} ${month + 1}월`;
-                    calendarDaysElement.innerHTML = '';
-                    const firstDayIndex = new Date(year, month, 1).getDay();
-                    const lastDate = new Date(year, month + 1, 0).getDate();
-                    const prevLastDate = new Date(year, month, 0).getDate();
-                    // Days from previous month
-                    for (let i = firstDayIndex; i > 0; i--) {
-                        const day = document.createElement('span');
-                        day.textContent = prevLastDate - i + 1;
-                        day.classList.add('other-month');
-                        calendarDaysElement.appendChild(day);
-                    }
-                    // Days of current month
-                    for (let i = 1; i <= lastDate; i++) {
-                        const day = document.createElement('span');
-                        day.textContent = i;
-                        if (i === 16 || i === 26) {
-                            day.classList.add('has-event');
-                        }
-                        
-                        day.addEventListener('click', () => {
-                            const selected = calendarDaysElement.querySelector('.selected');
-                            if(selected) selected.classList.remove('selected');
-                            day.classList.add('selected');
-                            scheduleDateTextElement.textContent = `${month + 1}월 ${i}일에`;
-                        });
-                        calendarDaysElement.appendChild(day);
-                    }
-                    // Days from next month
-                    const totalDays = calendarDaysElement.children.length;
-                    const nextDays = (7 - (totalDays % 7)) % 7;
-                    for (let i = 1; i <= nextDays; i++) {
-                        const day = document.createElement('span');
-                        day.textContent = i;
-                        day.classList.add('other-month');
-                        calendarDaysElement.appendChild(day);
-                    }
-                    
-                    // Set initial schedule text and selected day
-                    if (!calendarDaysElement.querySelector('.selected')) {
-                        scheduleDateTextElement.textContent = `${currentDate.getMonth() + 1}월 26일에`;
-                        const day26 = Array.from(calendarDaysElement.querySelectorAll('span:not(.other-month)')).find(d => d.textContent === '26');
-                        if(day26) day26.classList.add('selected');
-                    }
-                };
-                prevMonthButton.addEventListener('click', () => {
-                    currentDate.setMonth(currentDate.getMonth() - 1);
-                    renderCalendar();
-                });
-                nextMonthButton.addEventListener('click', () => {
-                    currentDate.setMonth(currentDate.getMonth() + 1);
-                    renderCalendar();
-                });
-               };
+            const calendarContainer = document.getElementById('more-screen');
+            if (!calendarContainer) return;
+
+            const monthYearElement = document.getElementById('month-year');
+            const calendarDaysElement = document.getElementById('calendar-days');
+            const prevMonthButton = document.getElementById('prev-month');
+            const nextMonthButton = document.getElementById('next-month');
+            const scheduleDateTextElement = document.getElementById('schedule-date-text');
+
+            let currentDate = new Date(2025, 9, 1); // 2025년 10월
+
+            const renderCalendar = () => {
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+                monthYearElement.textContent = `${year} ${month + 1}월`;
+                calendarDaysElement.innerHTML = '';
+
+                const firstDayIndex = new Date(year, month, 1).getDay();
+                const lastDate = new Date(year, month + 1, 0).getDate();
+                const prevLastDate = new Date(year, month, 0).getDate();
+
+                // 이전 달의 날짜 표시
+                for (let i = firstDayIndex; i > 0; i--) {
+                    const day = document.createElement('span');
+                    day.textContent = prevLastDate - i + 1;
+                    day.classList.add('other-month');
+                    calendarDaysElement.appendChild(day);
+                }
+
+                // 이번 달의 날짜 표시
+                for (let i = 1; i <= lastDate; i++) {
+                    const day = document.createElement('span');
+                    day.textContent = i;
+                    if (i === 16 || i === 26) day.classList.add('has-event');
+                    day.addEventListener('click', () => {
+                        const selected = calendarDaysElement.querySelector('.selected');
+                        if (selected) selected.classList.remove('selected');
+                        day.classList.add('selected');
+                        scheduleDateTextElement.textContent = `${month + 1}월 ${i}일에`;
+                    });
+                    calendarDaysElement.appendChild(day);
+                }
+
+                // 다음 달의 앞부분 날짜 채우기
+                const totalDays = calendarDaysElement.children.length;
+                const nextDays = (7 - (totalDays % 7)) % 7;
+                for (let i = 1; i <= nextDays; i++) {
+                    const day = document.createElement('span');
+                    day.textContent = i;
+                    day.classList.add('other-month');
+                    calendarDaysElement.appendChild(day);
+                }
+
+                // 초기 선택 (26일)
+                if (!calendarDaysElement.querySelector('.selected')) {
+                    scheduleDateTextElement.textContent = `${month + 1}월 26일에`;
+                    const day26 = Array.from(calendarDaysElement.querySelectorAll('span:not(.other-month)'))
+                        .find(d => d.textContent === '26');
+                    if (day26) day26.classList.add('selected');
+                }
+            };
+
+            // 이전/다음 버튼
+            prevMonthButton.addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar();
+            });
+            nextMonthButton.addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar();
+            });
+
+            // ✅ 캘린더 최초 렌더링 추가
+            renderCalendar();
+        };
+
     // --- Initialization ---
 
     if (screens.loading && screens.app && infoSheet) {
