@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         more: document.getElementById('nav-more'),
     };
     const goToNeighborBtn = document.getElementById('go-to-neighbor');
+    const goToBangackangBtn = document.getElementById('go-to-bangackang');
     const tabFindBundles = document.getElementById('tab-find-bundles');
     const tabMyBundles = document.getElementById('tab-my-bundles');
     const findBundlesContent = document.getElementById('find-bundles-content');
@@ -28,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Data ---
     const neighborData = [
-        { name: "권재현", subtitle: "스파크 팀장 권재현입니다", description: "떡잎 프로젝트의 팀장을 맡고 있습니다.", profilePic: "1202.png", location: "서울특별시 마포구 양화로", job: "일러스트레이터", date: "2023년 6월", interests: ["자전거", "독서", "강아지"], mbti: "INFJ", email: "rkdskdzhd@gmail.com", online: false },
-        { name: "나기찬", subtitle: "스파크 기획 나기찬입니다", description: "떡잎 서비스의 기획을 담당합니다.", profilePic: "1206.png", location: "서울시 성동구", job: "UX 디자이너", date: "2024년 1월", interests: ["고양이", "커피", "산책"], mbti: "INFP", email: "nakichan@example.com", online: true },
-        { name: "박근우", subtitle: "스파크 개발 박근우입니다", description: "떡잎 앱의 프론트엔드 개발을 맡았습니다.", profilePic: "1207.png", location: "경기도 안산시", job: "프론트엔드 개발자", date: "2023년 11월", interests: ["코딩", "게임", "음악감상"], mbti: "ISTP", email: "geunwoo@example.com", online: true },
-        { name: "이규원", subtitle: "스파크 발표 이규원입니다", description: "떡잎 프로젝트의 발표와 디자인을 담당합니다.", profilePic: "1218.png", location: "경기도 과천시", job: "UI/UX 디자이너", date: "2023년 8월", interests: ["디자인", "여행", "사진"], mbti: "ENFP", email: "kyuwon@example.com", online: false },
-        { name: "조율희", subtitle: "KDMHS 24DC", description: "24기디컨 조율희 입니다.", profilePic: "1224.png", location: "경기도 시흥시", job: "학생", date: "2024년 3월", interests: ["그림", "영상편집", "영화"], mbti: "INTP", email: "yulhee@example.com", online: true },
-        { name: "최서연", subtitle: "데이터 분석가 지망생", description: "파이썬과 R을 공부하고 있습니다. 같이 성장해요!", profilePic: "1218.png", location: "인천광역시 연수구", job: "데이터 분석가", date: "2024년 2월", interests: ["데이터분석", "머신러닝", "독서"], mbti: "ISTJ", email: "seoyeon@example.com", online: false },
-        { name: "강지훈", subtitle: "백엔드 개발자", description: "Spring Boot와 JPA를 다룹니다. 커피챗 환영!", profilePic: "https://static.solved.ac/uploads/profile/360x360/hoodstar1018-picture-1759662779491.png", location: "서울특별시 강남구", job: "백엔드 개발자", date: "2023-09-01", interests: ["알고리즘", "커피", "헬스"], mbti: "ENTJ", email: "jihun@example.com", online: true },
-        { name: "윤채원", subtitle: "iOS 개발자", description: "SwiftUI로 예쁜 앱 만드는 것을 좋아해요.", profilePic: "1218.png", location: "서울특별시 서초구", job: "iOS 개발자", date: "2024-04-15", interests: ["SwiftUI", "애니메이션", "클라이밍"], mbti: "ENFP", email: "chaewon@example.com", online: true },
-        { name: "김규진", subtitle: "알고리즘 풀이 중", description: "백준 루비를 목표로 달리는 중입니다.", profilePic: "https://static.solved.ac/uploads/profile/360x360/magic_spirit-picture-1730540336652.png", location: "대전광역시 유성구", job: "대학생", date: "2023-03-02", interests: ["PS", "LOL", "보드게임"], mbti: "INTP", email: "gyujin@example.com", online: false },
-        { name: "조은우", subtitle: "PM이 되고 싶어요", description: "기획과 프로젝트 관리에 대한 이야기를 나눠요.", profilePic: "https://static.solved.ac/uploads/profile/360x360/ho991217-picture-1646121336321.png", location: "부산광역시 해운대구", job: "기획자", date: "2023-12-20", interests: ["기획", "독서모임", "영화감상"], mbti: "ESFJ", email: "eunwoo@example.com", online: false }
+        { name: "권재현", subtitle: "스파크 팀장 권재현입니다", description: "떡잎 프로젝트의 팀장을 맡고 있습니다.", profilePic: "1202.png", location: "경기도 화성시 반월동", job: "일러스트레이터", date: "2023년 6월", interests: ["자전거", "독서", "강아지"], mbti: "INFJ", email: "rkdskdzhd@gmail.com", online: false },
+        { name: "나기찬", subtitle: "스파크 기획 나기찬입니다", description: "떡잎 서비스의 기획을 담당합니다.", profilePic: "1206.png", location: "서울시 성동구", job: "UX 디자이너", date: "2024년 1월", interests: ["고양이", "커피", "산책"], mbti: "INFP", email: "nakichan@naver.com", online: true },
+        { name: "박근우", subtitle: "스파크 개발 박근우입니다", description: "떡잎 앱의 프론트엔드 개발을 맡았습니다.", profilePic: "1207.png", location: "경기도 안산시", job: "프론트엔드 개발자", date: "2023년 11월", interests: ["코딩", "게임", "음악감상"], mbti: "ISTP", email: "geunwoo@.dimigo.hs.kr", online: true },
+        { name: "이규원", subtitle: "스파크 발표 이규원입니다", description: "떡잎 프로젝트의 발표와 디자인을 담당합니다.", profilePic: "1218.png", location: "경기도 과천시", job: "UI/UX 디자이너", date: "2023년 8월", interests: ["디자인", "여행", "사진"], mbti: "ENFP", email: "kyuwon@gmail.com", online: false },
+        { name: "조율희", subtitle: "KDMHS 24DC", description: "24기디컨 조율희 입니다.", profilePic: "1224.png", location: "경기도 수원시 영통구", job: "학생", date: "2024년 3월", interests: ["프론트엔드", "영상편집", "영화"], mbti: "INFP", email: "yulhee6745@gmail.com", online: true },
+        { name: "최서연", subtitle: "데이터 분석가 지망생", description: "파이썬과 R을 공부하고 있습니다. 같이 성장해요!", profilePic: "1218.png", location: "인천광역시 연수구", job: "데이터 분석가", date: "2024년 2월", interests: ["데이터분석", "머신러닝", "독서"], mbti: "ISTJ", email: "seoyeon@gmail.com", online: false },
+        { name: "강지훈", subtitle: "백엔드 개발자", description: "Spring Boot와 JPA를 다룹니다. 커피챗 환영!", profilePic: "https://static.solved.ac/uploads/profile/360x360/hoodstar1018-picture-1759662779491.png", location: "서울특별시 강남구", job: "백엔드 개발자", date: "2023-09-01", interests: ["알고리즘", "커피", "헬스"], mbti: "ENTJ", email: "jihun@gmail.com", online: true },
+        { name: "윤채원", subtitle: "iOS 개발자", description: "SwiftUI로 예쁜 앱 만드는 것을 좋아해요.", profilePic: "1218.png", location: "서울특별시 서초구", job: "iOS 개발자", date: "2024-04-15", interests: ["SwiftUI", "애니메이션", "클라이밍"], mbti: "ENFP", email: "chaewon@gmail.com", online: true },
+        { name: "김규진", subtitle: "알고리즘 풀이 중", description: "백준 루비를 목표로 달리는 중입니다.", profilePic: "https://static.solved.ac/uploads/profile/360x360/magic_spirit-picture-1730540336652.png", location: "대전광역시 유성구", job: "학생", date: "2023-03-02", interests: ["PS", "LOL", "보드게임"], mbti: "INTP", email: "gyujin@gmail.com", online: false },
+        { name: "조은우", subtitle: "PM이 되고 싶어요", description: "기획과 프로젝트 관리에 대한 이야기를 나눠요.", profilePic: "https://static.solved.ac/uploads/profile/360x360/ho991217-picture-1646121336321.png", location: "부산광역시 해운대구", job: "기획자", date: "2023-12-20", interests: ["기획", "독서모임", "영화감상"], mbti: "ESFJ", email: "eunwoo@gmail.com", online: false }
     ];
 
     // --- Profile Modal --- 
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         goToNeighborBtn?.addEventListener('click', (e) => { e.preventDefault(); updateUIForScreen(screens.neighbor, navItems.neighbor); });
+        goToBangackangBtn?.addEventListener('click', (e) => { e.preventDefault(); updateUIForScreen(screens.bangackang, navItems.bangackang); });
     };
 
     const setupMateTabs = () => {
