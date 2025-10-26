@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>떡잎</title>
-    <link rel="stylesheet" href="style.css?v=1.6">
+    <link rel="stylesheet" href="style.css?v=1.7">
 </head>
 <body>
     <div class="app-container">
@@ -301,11 +301,12 @@
             </main>
         </div>
                 <div id="neighbor-screen" class="screen"><!-- ...내 이웃 내용... --></div>
+        
         <!-- 방앗간 화면 (신규) -->
         <div id="bangackang-screen" class="screen">
             <div class="placeholder-content">
-                <h1>아직 개발중입니다 🛠️</h1>
-                <p>멋진 기능으로 곧 찾아올게요!</p>
+                <h1>힘듭니다...</h1>
+                <p>장터는 아직 안열렸어요..</p>
             </div>
         </div>
         <!-- 더보기 캘린더 화면 -->
@@ -348,18 +349,56 @@
             </main>
         </div>
 
+        <!-- 이웃 프로필 모달 -->
+        <div id="neighbor-profile-modal" class="modal-container hidden">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img id="modal-profile-pic" src="help.png" alt="프로필 사진" class="profile-pic">
+                        <div class="profile-info">
+                            <h2 id="modal-profile-name">이름</h2>
+                            <p id="modal-profile-subtitle">소개</p>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="message-button">메시지</button>
+                        <button class="heart-button">♡</button>
+                    </div>
+                    <div class="profile-section">
+                        <h3>소개</h3>
+                        <p id="modal-profile-description">상세 소개</p>
+                        <div class="profile-details">
+                            <p id="modal-profile-location">📍 위치</p>
+                            <p id="modal-profile-job">💼 직업</p>
+                            <p id="modal-profile-date">📅 가입일</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-section interests-section">
+                    <h3>관심사</h3>
+                    <div class="interests" id="modal-profile-interests">
+                        <!-- interests will be populated here -->
+                    </div>
+                </div>
+                <div class="profile-section about-me-section">
+                    <h3>내 소개</h3>
+                    <p id="modal-profile-mbti">mbti:</p>
+                    <p id="modal-profile-email">email:</p>
+                </div>
+            </div>
+        </div>
 
         <!-- 하단 네비게이션 -->
         <nav class="bottom-nav">
             <a href="#" id="nav-home" class="nav-item"><img src="home.png" alt="홈"><span>홈</span></a>
             <a href="#" id="nav-mate" class="nav-item"><img src="mate.png" alt="떡메이트"><span>떡메이트</span></a>
             <a href="#" id="nav-neighbor" class="nav-item"><img src="neighborhood.png" alt="내이웃"><span>내이웃</span></a>
-            <!-- ID 추가 -->
             <a href="#" id="nav-bangackang" class="nav-item"><img src="bangackang.png" alt="방앗간"><span>방앗간</span></a>
             <a href="#" id="nav-more" class="nav-item"><img src="moreimg.png" alt="더보기"><span>더보기</span></a>
         </nav>
     </div>
 
-    <script src="script.js?v=1.6"></script>
+    <script src="script.js?v=1.7"></script>
 </body>
 </html>
