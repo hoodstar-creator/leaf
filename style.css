@@ -595,3 +595,137 @@ body {
     font-size: 0.95em;
     color: #8D6E63;
 }
+
+/*캘린더창*/
+.calendar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #5D4037;
+}
+
+.calendar-header h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+
+}
+
+.calendar-header img {
+    width: 24px;
+    height: 24px;
+}
+
+.calendar-container {
+    background-color: #F7F1E9;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.calendar-nav h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #6D4C41;
+}
+.calendar-nav button {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: #8D6E63;
+    cursor: pointer;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+
+.days-of-week span {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #A1887F;
+    padding-bottom: 10px;
+}
+
+#calendar-days span {
+    font-size: 1em;
+    color: #6D4C41;
+    padding: 8px 0;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+#calendar-days span.today {
+    background-color: #EADBC8;
+    font-weight: bold;
+}
+
+#calendar-days span.other-month {
+    color: #D7CCC8;
+}
+
+#calendar-days span.has-event::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px; 
+    height: 10px;
+    background-image: url('asdfghjk.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.add-schedule-container {
+    position: fixed;
+    bottom: 70px; /* 네비게이션 바 높이 */
+    left: 0;
+    right: 0;
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: #F7F1E9;
+    padding: 20px 30px 20px;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.bottom-handle-bar {
+    width: 40px;
+    height: 4px;
+    background-color: #D7CCC8;
+    border-radius: 2px;
+    margin: -10px auto 15px;
+}
+
+.add-schedule-button {
+    width: 100%;
+    background-color: #C58541;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-schedule-button .plus-icon {
+    font-size: 1.5em;
+}
