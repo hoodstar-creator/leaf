@@ -598,17 +598,33 @@ body {
 
 /*캘린더창*/
 .calendar-header {
+    right: 30%;
+    bottom: 1%;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    color: #5D4037;
+    justify-content: center; /* 중앙정렬 */
+    gap: 12px; /* 화살표와 간격 */
+    position: relative;
 }
 
+/* 왼쪽 화살표는 절대 위치로 고정 */
+.calendar-header button:first-child {
+    position: absolute;
+    left: 10px;
+}
+
+/* 오른쪽 화살표는 절대 위치로 고정 */
+.calendar-header button:last-child {
+    position: absolute;
+    right: 10px;
+}
+
+/* 제목 스타일 조정 */
 .calendar-header h2 {
     font-size: 1.5em;
     font-weight: 700;
-
+    text-align: left; /* 글자 가운데 정렬 */
+    color: #6B3E2E; /* 캘린더 색상톤 맞춤 */
 }
 
 .calendar-header img {
@@ -692,28 +708,28 @@ body {
 
 .add-schedule-container {
     position: fixed;
-    bottom: 70px; /* 네비게이션 바 높이 */
+    bottom: 150px; /* 네비게이션 바 높이 */
     left: 0;
     right: 0;
     max-width: 450px;
     margin: 0 auto;
-    background-color: #F7F1E9;
+    background-color: #EDD1BB;
     padding: 20px 30px 20px;
     border-radius: 25px 25px 0 0;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .bottom-handle-bar {
-    width: 40px;
-    height: 4px;
-    background-color: #D7CCC8;
-    border-radius: 2px;
+    width: 200px;
+    height: 12px;
+    background-color: #7F4424;
+    border-radius: 26px;
     margin: -10px auto 15px;
 }
 
 .add-schedule-button {
     width: 100%;
-    background-color: #C58541;
+    background-color: #AB7F67;
     border: none;
     border-radius: 15px;
     padding: 15px;
@@ -721,7 +737,7 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 1.1em;
-    color: white;
+    color: #E9D7C8;
     font-weight: 600;
     cursor: pointer;
 }
